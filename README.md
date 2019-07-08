@@ -2,18 +2,22 @@
 Game for dictation of Algorithms I, test 3.  I did the game of the style that I like, I'll always give some updates ;)!
 
 # Updates Versions
-1. 1.0V
+1.0 V
   * Create base game.
-1. 2.0 V
+2.0 V
   * Added collisions
   * Added Meteor Intelligence
+3.0 V
+  * Improvement in the scoring system
+  * Added Clouds Intelligence
+  * Added The big final
+  
+  Added Configs
+  * Added Modes White/Night
+  * Added Music ON/OFF
+  
   
 # Future Updates
-- [X] Game base
-- [X] Collisions
-- [X] Meteor Intelligence
-- [ ] Clouds
-- [ ] Beautiful floor
 - [ ] Colors config
-- [ ] The big end
+- [ ] Easter egg Nyan Cat
 - [ ] ...
