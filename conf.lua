@@ -1,5 +1,8 @@
 function love.conf(t)
-    t.title = "DinossaurDisconect"
-    t.author = "ThadeuDefault"
+    t.window.title = "DinoDisconect"
+    t.window.icon = "images/menuicon.png"
+
+
+
 
 end

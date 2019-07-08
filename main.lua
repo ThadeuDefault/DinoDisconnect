@@ -9,7 +9,7 @@ require ("elements/points")
 require ("elements/gameover")
 require ("elements/theend")
 require ("elements/colisoes")
-require ("elements/config")
+require ("elements/configs")
 
 larguraTela = 1200
 alturaTela = 800
