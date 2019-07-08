@@ -1,6 +1,6 @@
 
 function cactosLoad()
-	delayCacto = 2
+	delayCacto = 3
 	tempoCriarCacto = delayCacto
     imgCacto = love.graphics.newImage( "images/cacto.png" )
 	cactos = {}
@@ -33,7 +33,8 @@ end
 
 function cactosDraw()
     -- Spawn
-    for i, cacto in ipairs( cactos ) do
+	for i, cacto in ipairs( cactos ) do
+		love.graphics.setColor(corElement)
         love.graphics.draw( cacto.img, cacto.posx, cacto.posy )
     end
 end

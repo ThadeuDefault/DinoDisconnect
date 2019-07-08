@@ -18,4 +18,5 @@ function colisoes()
 			musicDeath:play()
 		end
 	end
+	
 end

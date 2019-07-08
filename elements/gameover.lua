@@ -16,54 +16,51 @@ function gameoverUpdate(dt)
 end
 
 function gameoverDraw()
-    love.graphics.setBackgroundColor(255,255,255)
+    love.graphics.setBackgroundColor(corFundo)
 
-    love.graphics.setColor(0,0,0)
+    love.graphics.setColor(corElement)
     love.graphics.draw(imgGameover, posnamex + 185, 100,0,1,1,imgGameover:getWidth()/2, imgGameover:getWidth()/2)
 
     love.graphics.setFont(love.graphics.newFont(font, 50))
-    love.graphics.setColor(0,0,0) 
+    love.graphics.setColor(corElement)
     love.graphics.print("GAMEOVER", posnamex, posnamey)
 
     love.graphics.setFont(love.graphics.newFont(font, 12))
-    love.graphics.setColor(0,0,0) 
+    love.graphics.setColor(corElement)
     love.graphics.print("DINO DISCONECT", posnamex + 100, posnamey + 55)
 
     
-    love.graphics.setColor(0,0,0)
+    love.graphics.setColor(corElement)
     love.graphics.rectangle("line" ,posButtonx,posButtony,larguraButton,alturaButton)
     love.graphics.setFont(love.graphics.newFont(font, 20))
-    love.graphics.setColor(0,0,0)
+    love.graphics.setColor(corElement)
     love.graphics.print("RESTART", posButtonx + 60, posButtony + 20)
     
-    buttonStart = love.mouse.getX() > 480 and love.mouse.getY() > 400 and love.mouse.getX() < 730 and love.mouse.getY() < 460
-    if love.mouse.isDown(1) and buttonStart  then
+    buttonRestart = love.mouse.getX() > 480 and love.mouse.getY() > 400 and love.mouse.getX() < 730 and love.mouse.getY() < 460
+    if love.mouse.isDown(1) and buttonRestart  then
         gamestate = "play"
         pontos = 0
-        delayCacto = 5
-        spawnCacto = delayCacto
-        speedCacto = 200
+        delayCacto = 3
+        tempoCriarCacto = delayCacto
+
+        for i, meteor in ipairs( meteors ) do
+            table.remove( meteors, i )
+        end
+
+        for i, cacto in ipairs( cactos ) do
+            table.remove( cactos, i )
+        end
+
+        for i, nuvem in ipairs( nuvens ) do
+            table.remove( nuvem, i)
+        end        
     end
 
-    love.graphics.setColor(0,0,0)
-    love.graphics.rectangle("line" ,posButtonx,posButtony,larguraButton,alturaButton)
-    love.graphics.setFont(love.graphics.newFont(font, 20))
-    love.graphics.setColor(0,0,0)
-    love.graphics.print("RESTART", posButtonx + 60, posButtony + 20)
-    
-    buttonExit= love.mouse.getX() > 480 and love.mouse.getY() > 400 and love.mouse.getX() < 730 and love.mouse.getY() < 460
-    if love.mouse.isDown(1) and buttonStart  then
-        gamestate = "play"
-        pontos = 0
-        delayCacto = 5
-        spawnCacto = delayCacto
-        speedCacto = 200
-    end
 
-    love.graphics.setColor(0,0,0)
+    love.graphics.setColor(corElement)
     love.graphics.rectangle("line" ,posButtonx,posButtony + 70,larguraButton,alturaButton)
     love.graphics.setFont(love.graphics.newFont(font, 20))
-    love.graphics.setColor(0,0,0) 
+    love.graphics.setColor(corElement)
     love.graphics.print("MENU", posButtonx + 80, posButtony + 90)
 
     buttonMenu = love.mouse.getX() > 480 and love.mouse.getY() > 470 and love.mouse.getX() < 730 and love.mouse.getY() < 530
@@ -71,15 +68,17 @@ function gameoverDraw()
         gamestate = "menu"
     end
 
-    love.graphics.setColor(0,0,0)
+    love.graphics.setColor(corElement)
     love.graphics.rectangle("line" ,posButtonx,posButtony + 140,larguraButton,alturaButton)
     love.graphics.setFont(love.graphics.newFont(font, 20))
-    love.graphics.setColor(0,0,0) 
+    love.graphics.setColor(corElement)
     love.graphics.print("EXIT", posButtonx + 87, posButtony + 160)
 
     buttonExit = love.mouse.getX() > 480 and love.mouse.getY() > 540 and love.mouse.getX() < 730 and love.mouse.getY() < 600
     if love.mouse.isDown(1) and buttonExit  then
-        love.audio.play(love.audio.newSource( "music/buttonClick.wav", "static" ))
+        if music == true then
+            love.audio.play(love.audio.newSource( "music/buttonClick.wav", "static" ))
+        end
         love.event.quit()
     end
     if love.keyboard.isDown( "r" ) then 

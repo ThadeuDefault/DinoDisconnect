@@ -48,7 +48,8 @@ function meteorUpdate(dt)
 end
 
 function meteorDraw()
-    for i, meteor in ipairs( meteors ) do
+	for i, meteor in ipairs( meteors ) do
+		love.graphics.setColor(corElement)
         love.graphics.draw( meteor.img, meteor.posx, meteor.posy )
     end
 end

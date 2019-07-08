@@ -9,21 +9,48 @@ require ("elements/points")
 require ("elements/gameover")
 require ("elements/theend")
 require ("elements/colisoes")
+require ("elements/config")
 
 larguraTela = 1200
 alturaTela = 800
-mode = white
-color = rgb
-gamestate = "menu"
-pontos = 0
+
 font = "fonts/8bits.ttf"
-music = true
+
+-- Colors
+corFundo = {1, 1, 1}
+corElement = {0 , 0, 0}
+
+modeWhite = true
+modeNight = false
+
+elementWhite = true
+elementRed = false
+elementGreen = false
+elementBlue = false
+elementPurple = false
+
+elementEspecial = false
+
+
+-- Status do jogo
+gamestate = "menu"
+
+-- Points
+pontos = 0
+pontosTheend = 100
+
+-- Config Music
+music = false
+musicMenu = true
+musicEnd = true
+
 
 
 function love.load()
         
+        -- Load all
         love.window.setMode(larguraTela, alturaTela)
-
+        theendLoad()
         menuLoad()
         worldLoad()
         dinossaurLoad()
@@ -31,50 +58,73 @@ function love.load()
         cactosLoad()
         pointsLoad()
         gameoverLoad()
-    --  theendLoad()
+        configLoad()
 
 
 end
 function love.update(dt)
     
+    -- Menu
     if gamestate == "menu" then
         menuUpdate(dt)
-        if music == true then
+        if music == true and musicMenu == true then
             musica = love.audio.newSource("music/musicGame.mp3", "static" )
         	musica:play()
             musica:setLooping( true )
-            music = false
+            musicMenu = false
         end
+
+    -- Start
     elseif gamestate == "play" then
-        love.audio.stop( musica )
+        if music == true then
+            love.audio.stop( musica )
+        end    
         worldUpdate(dt)
         dinossaurUpdate(dt)
         meteorUpdate(dt)
         cactosUpdate(dt)
         pointsUpdate(dt)
         colisoes()
+
+    -- Game over
     elseif gamestate == "gameover" then
         gameoverUpdate(dt)
-    --elseif gamestate == "theend" then
-     --   theendUpdate(dt)
+
+    -- The big end
+    elseif gamestate == "theend" then
+       theendUpdate(dt)
+
+    -- Config
+    elseif gamestate == "config" then
+        configUpdate(dt)
     end
 
-
+    --Pontos para o final
+    if pontos > pontosTheend then
+        gamestate = "theend"
+    end
 end
 function love.draw()
+    -- Menu
     if gamestate == "menu" then
         menuDraw()
+
+    -- Start
     elseif gamestate == "play" then
         worldDraw()
         dinossaurDraw()
         meteorDraw()
         cactosDraw()
         pointsDraw()
+        musicEnd = true
+        musicMenu = true
+
+    -- Gameover
     elseif gamestate == "gameover" then
 
         speedCacto = 200
         delayCacto = 2
-        
+
 
         for i, meteor in ipairs( meteors ) do
             table.remove( meteors, i )
@@ -84,9 +134,18 @@ function love.draw()
             table.remove( cactos, i )
         end
 
+        for i, nuvem in ipairs( nuvens ) do
+            table.remove( nuvem, i)
+        end
+
         gameoverDraw()
-        
-   -- elseif gamestate == "theend" then
-    --    theendDraw()
+    
+    -- The big end
+    elseif gamestate == "theend" then
+        theendDraw()
+
+    -- Configs
+    elseif gamestate == "config" then
+        configDraw()
     end
 end 

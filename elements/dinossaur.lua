@@ -1,7 +1,9 @@
 
 function love.keypressed(key)
     if key == "up" then
-        love.audio.play(love.audio.newSource( "music/jumpDinossaur.wav", "static" ))
+        if music == true then
+            love.audio.play(love.audio.newSource( "music/jumpDinossaur.wav", "static" ))
+        end
         if dinossaur.speedUp == 0 then
             dinossaur.speedUp = alturaPulo
         end
@@ -13,14 +15,16 @@ end
 function dinossaurLoad()
     
     imgDinossaur = love.graphics.newImage("images/dinossaur.png")
-    
+    imgDinossaurDead = love.graphics.newImage("images/dinossaurDead.png")
+
     dinossaur= {
         posx = 400,
         posy = 600,
         speed = 500,
         altura = imgDinossaur:getHeight(),
         largura = imgDinossaur:getWidth(),
-        speedUp = 0
+        speedUp = 0,
+        vida = "vivo",
     }
     alturaPulo = 40
 
@@ -38,15 +42,16 @@ function dinossaurUpdate(dt)
             end
     end
 
-    -- Colisão com cacto
-    
-
     -- Movimentos de esquerda e direita
     if love.keyboard.isDown( "right" ) then
-        dinossaur.posx = dinossaur.posx + dinossaur.speed*dt
+        if dinossaur.posx < larguraTela then
+            dinossaur.posx = dinossaur.posx + dinossaur.speed*dt
+        end
     end
     if love.keyboard.isDown( "left" ) then
-        dinossaur.posx = dinossaur.posx - dinossaur.speed*dt
+        if dinossaur.posx > 10 then
+            dinossaur.posx = dinossaur.posx - dinossaur.speed*dt
+        end
     end
 end
 
