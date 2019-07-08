@@ -131,25 +131,24 @@ function configDraw()
 
 
     -- Vermelho
- --[[   if elementsRed == true then
+    if elementRed == true then
         love.graphics.setColor(corElement)
-        love.graphics.rectangle("fill" ,posButtonx,posButtony + 140,larguraButton,alturaButton)
+        love.graphics.rectangle("fill",350,330,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corFundo) 
-        love.graphics.print("EXIT", posButtonx + 87, posButtony -160 )
-        buttonRed = love.mouse.getX() > 480 and love.mouse.getY() > 540 and love.mouse.getX() < 730 and love.mouse.getY() < 600
-        if love.mouse.isDown(1) and buttonRed  then
-            corElement = {1, 0, 0}
-        end
-    elseif elementsRed == false then
-        love.graphics.setColor(corElement)
-        love.graphics.rectangle("line" ,posButtonx,posButtony + 140,larguraButton,alturaButton)
+        love.graphics.print("VERMELHO", 420, 360 )
+        buttonModeNight = love.mouse.getX() > 620 and love.mouse.getY() > 230 and love.mouse.getX() < 870 and love.mouse.getY() < 290
+
+    elseif elementRed == false then
+        love.graphics.setColor(0, 0, 0)
+        love.graphics.rectangle("line" ,350,330,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
-        love.graphics.setColor(corElement) 
-        love.graphics.print("EXIT", posButtonx + 87, posButtony -160 )
-        buttonExit = love.mouse.getX() > 480 and love.mouse.getY() > 540 and love.mouse.getX() < 730 and love.mouse.getY() < 600
-        if love.mouse.isDown(1) and buttonExit  then
-            
+        love.graphics.setColor(corElement)
+        love.graphics.print("VERMELHO", 420, 360 )
+        buttonModeNight = love.mouse.getX() > 620 and love.mouse.getY() > 230 and love.mouse.getX() < 870 and love.mouse.getY() < 290
+        if love.mouse.isDown(1) and buttonModeNight  then
+            elementRed = true
+            corElement = {1, 0, 0}
         end
     end
     --]]

@@ -40,7 +40,7 @@ pontos = 0
 pontosTheend = 100
 
 -- Config Music
-music = false
+music = true
 musicMenu = true
 musicEnd = true
 
@@ -63,6 +63,10 @@ function love.load()
 
 end
 function love.update(dt)
+
+    if love.keyboard.isDown( "n" ) then 
+        corElement = {math.random(),math.random(),math.random()}
+    end
     
     -- Menu
     if gamestate == "menu" then
