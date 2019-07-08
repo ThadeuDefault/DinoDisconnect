@@ -9,9 +9,9 @@ alturaButton = 60
 larguraButton = 250
 
 function menuLoad()
-        love.graphics.setBackgroundColor(255,255,255)
         menuIcon = love.graphics.newImage("images/menuicon.png")
         --love.audio.play(love.audio.newSource( "music/musicGame.mp3", "static" ))
+        
 end
 
 function menuUpdate(dt)
@@ -20,7 +20,8 @@ function menuUpdate(dt)
 end
 
 function menuDraw()
-
+    love.graphics.setBackgroundColor(255,255,255)
+    
     love.graphics.setColor(0,0,0)
     love.graphics.draw(menuIcon, 635, 180,0,1,1,menuIcon:getWidth()/2, menuIcon:getWidth()/2)
 

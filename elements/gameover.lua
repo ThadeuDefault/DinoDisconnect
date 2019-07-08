@@ -9,15 +9,15 @@ alturaButton = 60
 larguraButton = 250
 
 function gameoverLoad()
-    love.graphics.setBackgroundColor(255,255,255)
     imgGameover = love.graphics.newImage("images/menuiconGameOver.png")
 end
 
 function gameoverUpdate(dt)
-
 end
 
 function gameoverDraw()
+    love.graphics.setBackgroundColor(255,255,255)
+
     love.graphics.setColor(0,0,0)
     love.graphics.draw(imgGameover, posnamex + 185, 100,0,1,1,imgGameover:getWidth()/2, imgGameover:getWidth()/2)
 

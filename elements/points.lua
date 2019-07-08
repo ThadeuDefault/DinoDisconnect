@@ -1,12 +1,9 @@
 
 function pointsLoad()
-
-
+    
 end
 
 function pointsUpdate(dt)
-
-    pontos = pontos + 1
 
 end
 

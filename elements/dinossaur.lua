@@ -11,17 +11,18 @@ function love.keypressed(key)
 end
 
 function dinossaurLoad()
- 
+    
+    imgDinossaur = love.graphics.newImage("images/dinossaur.png")
+    
     dinossaur= {
         posx = 400,
         posy = 600,
-        speed = 350,
-        altura = 100,
+        speed = 500,
+        altura = imgDinossaur:getHeight(),
+        largura = imgDinossaur:getWidth(),
         speedUp = 0
     }
     alturaPulo = 40
-
-    imgDinossaur = love.graphics.newImage("images/dinossaur.png")
 
 end
 
@@ -47,9 +48,8 @@ function dinossaurUpdate(dt)
     if love.keyboard.isDown( "left" ) then
         dinossaur.posx = dinossaur.posx - dinossaur.speed*dt
     end
-    
 end
 
 function dinossaurDraw()
-    love.graphics.draw(imgDinossaur, dinossaur.posx, dinossaur.posy,0,1,1,imgDinossaur:getWidth()/2, imgDinossaur:getWidth()/2)
+    love.graphics.draw(imgDinossaur, dinossaur.posx, dinossaur.posy,0,1,1, imgDinossaur:getWidth()/2, imgDinossaur:getHeight()/2)
 end

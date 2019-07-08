@@ -1,29 +1,54 @@
 
 function meteorLoad()
-    meteor= {
-        posx = math.random(300, 800),
-        posy = 0,
-        speedx = 200,
-        speedy = 300
-    }
+    delayMeteor = 2
+    tempoCriarMeteor = delayMeteor
     meteors = {}
     imgMeteor = love.graphics.newImage("images/meteor.png")
+	imgMeteorSubindo = love.graphics.newImage("images/meteor.png")
+    speedMeteorX = 100
+    speedMeteorY = 200
+    
 end
 
 function meteorUpdate(dt)
 
-    droparMeteor = math.random(1, 10)
+    tempoCriarMeteor = tempoCriarMeteor - ( 1 * dt )
 
-    meteor.posy = meteor.posy + meteor.speedy*dt
-    meteor.posx = meteor.posx - meteor.speedx*dt
+	if tempoCriarMeteor < 0 then
+		tempoCriarMeteor = delayMeteor
+		local numeroAleatorio = math.random( 300, love.graphics.getWidth() - ( ( imgMeteor:getWidth() / 2 ) + 10 ) )
+		novoMeteor = { posx = numeroAleatorio, posy = -imgMeteor:getWidth(), img = imgMeteor, colidiu = false }
+		table.insert( meteors, novoMeteor )
+	end
+	
+	for i, meteor in ipairs( meteors ) do
 
-    if meteor.posy > 610 then
-        meteor.posy = 0
-        meteor.posx = math.random(300, 800)
-    end
+		if meteor.colidiu == false then
+			meteor.posy = meteor.posy + ( speedMeteorY* dt )
+			meteor.posx = meteor.posx - ( speedMeteorX* dt )
+
+		elseif meteor.colidiu == true then
+			meteor.posy = meteor.posy - ( speedMeteorY* dt )
+			meteor.posx = meteor.posx - ( speedMeteorX* dt )
+			meteor.img = love.graphics.newImage("images/meteorColidiu.png")
+		end
+
+		if meteor.posy > 550 then
+			musicDeath = love.audio.newSource( "music/deathSound.mp3", "static" )
+			musicDeath:play()
+			gamestate = "gameover"
+		end
+
+		if meteor.posy < -100 then
+			table.remove(meteors, i)
+		end
+	end
+
 
 end
 
 function meteorDraw()
-    love.graphics.draw(imgMeteor, meteor.posx, meteor.posy,0,1,1,imgMeteor:getWidth()/2, imgMeteor:getWidth()/2)
+    for i, meteor in ipairs( meteors ) do
+        love.graphics.draw( meteor.img, meteor.posx, meteor.posy )
+    end
 end

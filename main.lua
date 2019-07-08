@@ -7,6 +7,8 @@ require ("elements/meteor")
 require ("elements/menu")
 require ("elements/points")
 require ("elements/gameover")
+require ("elements/theend")
+require ("elements/colisoes")
 
 larguraTela = 1200
 alturaTela = 800
@@ -15,10 +17,11 @@ color = rgb
 gamestate = "menu"
 pontos = 0
 font = "fonts/8bits.ttf"
+music = true
 
 
 function love.load()
-
+        
         love.window.setMode(larguraTela, alturaTela)
 
         menuLoad()
@@ -36,18 +39,25 @@ function love.update(dt)
     
     if gamestate == "menu" then
         menuUpdate(dt)
+        if music == true then
+            musica = love.audio.newSource("music/musicGame.mp3", "static" )
+        	musica:play()
+            musica:setLooping( true )
+            music = false
+        end
     elseif gamestate == "play" then
+        love.audio.stop( musica )
         worldUpdate(dt)
         dinossaurUpdate(dt)
         meteorUpdate(dt)
         cactosUpdate(dt)
         pointsUpdate(dt)
+        colisoes()
     elseif gamestate == "gameover" then
         gameoverUpdate(dt)
- --   elseif pontos == 100 then
---        theendDraw()
+    --elseif gamestate == "theend" then
+     --   theendUpdate(dt)
     end
-
 
 
 end
@@ -61,8 +71,22 @@ function love.draw()
         cactosDraw()
         pointsDraw()
     elseif gamestate == "gameover" then
+
+        speedCacto = 200
+        delayCacto = 2
+        
+
+        for i, meteor in ipairs( meteors ) do
+            table.remove( meteors, i )
+        end
+
+        for i, cacto in ipairs( cactos ) do
+            table.remove( cactos, i )
+        end
+
         gameoverDraw()
- --   elseif pontos == 100 then
- --       theendDraw()
+        
+   -- elseif gamestate == "theend" then
+    --    theendDraw()
     end
 end 
