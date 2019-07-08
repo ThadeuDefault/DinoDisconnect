@@ -110,7 +110,7 @@ function configDraw()
         buttonModeNight = love.mouse.getX() > 620 and love.mouse.getY() > 230 and love.mouse.getX() < 870 and love.mouse.getY() < 290
 
     elseif modeNight == false then
-        love.graphics.setColor(0, 0, 0)
+        love.graphics.setColor(corElement)
         love.graphics.rectangle("line" ,620,230,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corElement)
@@ -137,31 +137,109 @@ function configDraw()
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corFundo) 
         love.graphics.print("VERMELHO", 420, 360 )
-        buttonModeNight = love.mouse.getX() > 620 and love.mouse.getY() > 230 and love.mouse.getX() < 870 and love.mouse.getY() < 290
+        buttonElementRed = love.mouse.getX() > 350 and love.mouse.getY() > 330 and love.mouse.getX() < 600 and love.mouse.getY() < 390
 
     elseif elementRed == false then
-        love.graphics.setColor(0, 0, 0)
+        love.graphics.setColor(corElement)
         love.graphics.rectangle("line" ,350,330,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corElement)
         love.graphics.print("VERMELHO", 420, 360 )
-        buttonModeNight = love.mouse.getX() > 620 and love.mouse.getY() > 230 and love.mouse.getX() < 870 and love.mouse.getY() < 290
-        if love.mouse.isDown(1) and buttonModeNight  then
+        buttonElementRed = love.mouse.getX() > 350 and love.mouse.getY() > 330 and love.mouse.getX() < 600 and love.mouse.getY() < 390
+        if love.mouse.isDown(1) and buttonElementRed  then
+
             elementRed = true
+            elementBlue = false
+            elementGreen = false
+            elementPurple = false
+
             corElement = {1, 0, 0}
         end
     end
-    --]]
 
     -- Azul
+    if elementBlue == true then
+        love.graphics.setColor(corElement)
+        love.graphics.rectangle("fill",620,330,larguraButton,alturaButton)
+        love.graphics.setFont(love.graphics.newFont(font, 20))
+        love.graphics.setColor(corFundo) 
+        love.graphics.print("AZUL", 710, 360 )
+        buttonElementBlue = love.mouse.getX() > 620 and love.mouse.getY() > 330 and love.mouse.getX() < 870 and love.mouse.getY() < 390
+
+    elseif elementBlue == false then
+        love.graphics.setColor(corElement)
+        love.graphics.rectangle("line" ,620,330,larguraButton,alturaButton)
+        love.graphics.setFont(love.graphics.newFont(font, 20))
+        love.graphics.setColor(corElement)
+        love.graphics.print("AZUL", 710, 360 )
+        buttonElementBlue = love.mouse.getX() > 620 and love.mouse.getY() > 330 and love.mouse.getX() < 870 and love.mouse.getY() < 390
+        if love.mouse.isDown(1) and buttonElementBlue  then
+
+            elementRed = false
+            elementBlue = true
+            elementGreen = false
+            elementPurple = false
+
+            corElement = {0, 0, 1}
+        end
+    end
 
     -- Verde
+    if elementGreen == true then
+        love.graphics.setColor(corElement)
+        love.graphics.rectangle("fill",350,440,larguraButton,alturaButton)
+        love.graphics.setFont(love.graphics.newFont(font, 20))
+        love.graphics.setColor(corFundo)
+        love.graphics.print("VERDE", 420, 460 )
+        buttonElementGreen = love.mouse.getX() > 350 and love.mouse.getY() > 440 and love.mouse.getX() < 600 and love.mouse.getY() < 500
 
-    -- Amarelo
+    elseif elementGreen == false then
+        love.graphics.setColor(corElement)
+        love.graphics.rectangle("line" ,350,440,larguraButton,alturaButton)
+        love.graphics.setFont(love.graphics.newFont(font, 20))
+        love.graphics.setColor(corElement)
+        love.graphics.print("VERDE", 420, 460 )
+        buttonElementGreen = love.mouse.getX() > 350 and love.mouse.getY() > 440 and love.mouse.getX() < 600 and love.mouse.getY() < 500
+ 
+        if love.mouse.isDown(1) and buttonElementGreen  then
+
+            elementRed = false
+            elementBlue = false
+            elementGreen = true
+            elementPurple = false
+
+            corElement = {0, 1, 0}
+        end
+    end
 
     -- Roxo
+    if elementPurple == true then
+        love.graphics.setColor(corElement)
+        love.graphics.rectangle("fill",620,440,larguraButton,alturaButton)
+        love.graphics.setFont(love.graphics.newFont(font, 20))
+        love.graphics.setColor(corFundo)
+        love.graphics.print("ROXO", 710, 460 )
+        buttonElementPurple = love.mouse.getX() > 620 and love.mouse.getY() > 440 and love.mouse.getX() < 870 and love.mouse.getY() < 500
 
-    -- Especial
+    elseif elementPurple == false then
+        love.graphics.setColor(corElement)
+        love.graphics.rectangle("line" ,620,440,larguraButton,alturaButton)
+        love.graphics.setFont(love.graphics.newFont(font, 20))
+        love.graphics.setColor(corElement)
+        love.graphics.print("ROXO", 710, 460 )
+        buttonElementPurple = love.mouse.getX() > 620 and love.mouse.getY() > 440 and love.mouse.getX() < 870 and love.mouse.getY() < 500
+ 
+        if love.mouse.isDown(1) and buttonElementPurple  then
+
+            elementRed = false
+            elementBlue = false
+            elementGreen = false
+            elementPurple = true
+
+            corElement = {1, 0, 1}
+        end
+    end
+
 
     -- Voltar menu
         love.graphics.setColor(corElement)
