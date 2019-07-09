@@ -54,7 +54,7 @@ function configDraw()
         love.graphics.rectangle("fill",620,120,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corFundo) 
-        love.graphics.print("OFF", 710, 143)
+        love.graphics.print("OFF", 715, 143)
         buttonMusicOff = love.mouse.getX() > 620 and love.mouse.getY() > 120 and love.mouse.getX() < 870 and love.mouse.getY() < 180
         if love.mouse.isDown(1) and buttonMusicOff  then
             music = false
@@ -64,7 +64,7 @@ function configDraw()
         love.graphics.rectangle("line" ,620,120,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corElement) 
-        love.graphics.print("OFF", 710, 143 )
+        love.graphics.print("OFF", 715, 143 )
         buttonMusicOff = love.mouse.getX() > 620 and love.mouse.getY() > 120 and love.mouse.getX() < 870 and love.mouse.getY() < 180
         if love.mouse.isDown(1) and buttonMusicOff  then
             music = false
@@ -106,7 +106,7 @@ function configDraw()
         love.graphics.rectangle("fill",620,230,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corFundo) 
-        love.graphics.print("NIGHT", 710, 250 )
+        love.graphics.print("NIGHT", 695, 250 )
         buttonModeNight = love.mouse.getX() > 620 and love.mouse.getY() > 230 and love.mouse.getX() < 870 and love.mouse.getY() < 290
 
     elseif modeNight == false then
@@ -114,7 +114,7 @@ function configDraw()
         love.graphics.rectangle("line" ,620,230,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corElement)
-        love.graphics.print("NIGHT", 710, 250 )
+        love.graphics.print("NIGHT", 695, 250 )
         buttonModeNight = love.mouse.getX() > 620 and love.mouse.getY() > 230 and love.mouse.getX() < 870 and love.mouse.getY() < 290
         if love.mouse.isDown(1) and buttonModeNight  then
             modeNight = true
@@ -136,7 +136,7 @@ function configDraw()
         love.graphics.rectangle("fill",350,330,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corFundo) 
-        love.graphics.print("VERMELHO", 420, 360 )
+        love.graphics.print("VERMELHO", 400, 350 )
         buttonElementRed = love.mouse.getX() > 350 and love.mouse.getY() > 330 and love.mouse.getX() < 600 and love.mouse.getY() < 390
 
     elseif elementRed == false then
@@ -144,7 +144,7 @@ function configDraw()
         love.graphics.rectangle("line" ,350,330,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corElement)
-        love.graphics.print("VERMELHO", 420, 360 )
+        love.graphics.print("VERMELHO", 400, 350 )
         buttonElementRed = love.mouse.getX() > 350 and love.mouse.getY() > 330 and love.mouse.getX() < 600 and love.mouse.getY() < 390
         if love.mouse.isDown(1) and buttonElementRed  then
 
@@ -163,7 +163,7 @@ function configDraw()
         love.graphics.rectangle("fill",620,330,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corFundo) 
-        love.graphics.print("AZUL", 710, 360 )
+        love.graphics.print("AZUL", 710, 350 )
         buttonElementBlue = love.mouse.getX() > 620 and love.mouse.getY() > 330 and love.mouse.getX() < 870 and love.mouse.getY() < 390
 
     elseif elementBlue == false then
@@ -171,7 +171,7 @@ function configDraw()
         love.graphics.rectangle("line" ,620,330,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corElement)
-        love.graphics.print("AZUL", 710, 360 )
+        love.graphics.print("AZUL", 710, 350 )
         buttonElementBlue = love.mouse.getX() > 620 and love.mouse.getY() > 330 and love.mouse.getX() < 870 and love.mouse.getY() < 390
         if love.mouse.isDown(1) and buttonElementBlue  then
 
