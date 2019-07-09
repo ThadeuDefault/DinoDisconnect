@@ -15,9 +15,10 @@ Game for dictation of Algorithms I, test 3.  I did the game of the style that I 
   Added Configs
   * Added Modes White/Night
   * Added Music ON/OFF
-  
+4.0 V
+  * Added Colors Config
+  * Easter egg Nyan Cat "N"
+
   
 # Future Updates
-- [ ] Colors config
-- [ ] Easter egg Nyan Cat
 - [ ] ...

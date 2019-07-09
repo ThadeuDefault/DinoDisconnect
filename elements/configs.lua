@@ -83,7 +83,7 @@ function configDraw()
         love.graphics.rectangle("fill",350,230,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(corFundo) 
-        love.graphics.print("WHITE", 440, 250)
+        love.graphics.print("WHITE", 430, 250)
         buttonModeWhite = love.mouse.getX() > 350 and love.mouse.getY() > 230 and love.mouse.getX() < 600 and love.mouse.getY() < 290
 
     elseif modeWhite == false then
@@ -91,7 +91,7 @@ function configDraw()
         love.graphics.rectangle("line" ,350,230,larguraButton,alturaButton)
         love.graphics.setFont(love.graphics.newFont(font, 20))
         love.graphics.setColor(1, 1, 1)
-        love.graphics.print("WHITE", 440, 250 )
+        love.graphics.print("WHITE", 430, 250 )
         buttonModeWhite = love.mouse.getX() > 350 and love.mouse.getY() > 230 and love.mouse.getX() < 600 and love.mouse.getY() < 290
         if love.mouse.isDown(1) and buttonModeWhite  then
             modeWhite = true
