@@ -24,4 +24,7 @@ Game for dictation of Algorithms I, test 3.  I did the game of the style that I 
 
   
 # Future Updates
+- [ ] Pterodactyl
+- [ ] Delay dinosaur hang on the cactus to gameover.
+- [ ] Effect when the meteor falls.
 - [ ] ...
