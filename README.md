@@ -22,6 +22,9 @@ Game for dictation of Algorithms I, test 3.  I did the game of the style that I 
   * Added Colors Config
   * Easter egg Nyan Cat "N"
 
+5.0 V
+  * Added executable
+  * Added files love2d
   
 # Future Updates
 - [ ] Pterodactyl
